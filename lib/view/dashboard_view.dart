@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:number_generator/model/number_generator.dart';
 
 class DashBoardView extends StatefulWidget {
   const DashBoardView({super.key});
@@ -8,6 +9,14 @@ class DashBoardView extends StatefulWidget {
 }
 
 class _DashBoardViewState extends State<DashBoardView> {
+  NumberGenerator ng = NumberGenerator();
+
+  int numGen() {
+    ng.generate();
+    int number = ng.generate();
+    return number;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +57,9 @@ class _DashBoardViewState extends State<DashBoardView> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
                       ),
-                      child: const Text(
-                        'Num1',
-                        style: TextStyle(
+                      child: Text(
+                        numGen().toString(),
+                        style: const TextStyle(
                           fontSize: 22,
                         ),
                       ),
@@ -65,9 +74,9 @@ class _DashBoardViewState extends State<DashBoardView> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
                       ),
-                      child: const Text(
-                        'Num2',
-                        style: TextStyle(
+                      child: Text(
+                        numGen().toString(),
+                        style: const TextStyle(
                           fontSize: 22,
                         ),
                       ),
